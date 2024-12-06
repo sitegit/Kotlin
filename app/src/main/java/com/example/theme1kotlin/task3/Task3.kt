@@ -6,14 +6,8 @@ package com.example.theme1kotlin.task3
 * По нажатию на кнопку выводить результат в логи (не использовать рефлексию).
 */
 
-fun List<Any>.findInt(): List<Int> {
-    val result = mutableListOf<Int>()
-
-    this.forEach {
-        if (it is Int) result.add(it)
-    }
-    return result //либо можно просто воспользоваться встроенной функцией: return this.filterIsInstance<Int>()
-}
+fun List<Any>.findInt(): Int = this.firstOrNull { it is Int } as Int
+fun List<Any>.findListInt(): List<Int> = this.filterIsInstance<Int>() //для списка Интов
 
 //Рандомный класс для добавления в список
 class Test3Class
